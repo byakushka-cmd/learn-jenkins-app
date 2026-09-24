@@ -19,5 +19,14 @@ pipeline {
                  '''
                  }
         }
+         stage('test'){
+                steps{
+                    echo 'Testing new laptopp...'
+                    sh '''
+                        npm test
+                        
+                    '''
+                }
+        }
     }
 }
