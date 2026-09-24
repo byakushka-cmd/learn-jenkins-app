@@ -24,7 +24,6 @@ pipeline {
                     echo 'Testing new laptopp...'
                     sh '''
                         npm test
-                        
                     '''
                 }
         }
