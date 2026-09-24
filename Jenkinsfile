@@ -30,7 +30,7 @@ pipeline {
                     echo 'Testing new laptopp...'
                     sh '''
                         test -f build/index.html
-                        #npm test
+                        npm test
                     '''
                 }
         }
