@@ -19,7 +19,9 @@ pipeline {
                  '''
                  }
         }
-         stage('test'){
+         stage('Run Tests'){
+            parallel{
+                 stage('unit test'){
             agent{
                     docker{
                     image 'node:18-alpine'
@@ -34,7 +36,7 @@ pipeline {
                     '''
                 }
         }
-         stage('E2E'){
+         stage('E2E tests'){
             agent{
                     docker{
                     image 'mcr.microsoft.com/playwright:v1.63.0-noble'
@@ -50,7 +52,10 @@ pipeline {
                        npx playwright test --reporter=line
                     '''
                 }
-        }
+       
+            }
+         }
+         }
     }
     post{
         always {
